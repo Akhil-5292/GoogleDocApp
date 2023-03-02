@@ -1,0 +1,13 @@
+.nav{
+    height: 3rem;
+    box-shadow: 2px 2px 3px 2px gray;
+    background-color: lightgray;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+}
+.wrapper{
+    background-color: lightgray;
+}

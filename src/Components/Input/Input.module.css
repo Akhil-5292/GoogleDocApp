@@ -1,0 +1,15 @@
+.wrapper{
+    border: 1px solid;
+    height: 92.7vh;
+}
+
+
+.input{
+    height: 80vh;
+    width: 80vw;
+    font-size: 14px;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    box-shadow: 2px 3px 7px 5px gray;
+}
