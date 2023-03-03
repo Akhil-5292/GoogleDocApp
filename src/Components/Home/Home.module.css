@@ -40,10 +40,11 @@
 .IconsContainer {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 2rem;
     width: 98.1%;
     margin-bottom: 1.3rem;
-    box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    /* box-shadow: 0 1px 3px 1px rgba(60, 64, 67, 0.15); */
+    box-shadow: 2px 2px 3px 2px gray;
     background: #fff;
     color: rgb(70, 70, 70);
     cursor: pointer;
