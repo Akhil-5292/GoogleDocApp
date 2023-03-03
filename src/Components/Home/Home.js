@@ -1,44 +1,126 @@
-import { useState } from "react";
-import Input from "../Input/Input";
+import { useEffect } from "react";
+import {  Fab } from '@mui/material';
 import style from './Home.module.css'
 import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
 import FormatListNumberedIcon from '@mui/icons-material/FormatListNumbered';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import ReorderIcon from '@mui/icons-material/Reorder';
 import SegmentIcon from '@mui/icons-material/Segment';
+import DownloadIcon from '@mui/icons-material/Download';
+import FormatBoldIcon from "@mui/icons-material/FormatBold";
+import FormatItalicIcon from "@mui/icons-material/FormatItalic";
+import FormatUnderlinedIcon from "@mui/icons-material/FormatUnderlined";
+// import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+// import FormatListNumberedIcon from "@mui/icons-material/FormatListNumbered";
+// import FormatQuoteIcon from "@mui/icons-material/FormatQuote";
+// import CodeIcon from "@mui/icons-material/Code";
+// import FormatColorFillIcon from "@mui/icons-material/FormatColorFill";
+// import FormatColorTextIcon from "@mui/icons-material/FormatColorText";
+// import FormatIndentDecreaseIcon from "@mui/icons-material/FormatIndentDecrease";
+// import FormatIndentIncreaseIcon from "@mui/icons-material/FormatIndentIncrease";
+// import FormatLineSpacingIcon from "@mui/icons-material/FormatLineSpacing";
+// import FormatSizeIcon from "@mui/icons-material/FormatSize";
+// import ImageIcon from "@mui/icons-material/Image";
+import DownloadRoundedIcon from "@mui/icons-material/DownloadRounded";
 export default function Home(){
     
-   const [bold,setBold]=useState(false)
-   const [text,setText]=useState()
-   const click=()=>{
-   setBold(!bold)
-   }
+   
+  useEffect(() => {
+    const boldFunctionality = document.querySelector('#boldButton');
+    const italicsFunctionality = document.querySelector('#italicsButton');
+    const underlineFunctionality = document.querySelector('#underlineButton');
 
-  const change=(e)=>{
-    setText(e.target.value)
-  }
+    const newBtn=document.querySelector('#New')
+    const txtBtn=document.querySelector('#txt')
+
+    const content=document.querySelector('#content')
+    const handleBoldClick = () => {
+      document.execCommand('bold');
+    };
+
+    const handleItalicClick = () => {
+      document.execCommand('italic');
+    };
+
+    const handleUnderlineClick = () => {
+      document.execCommand('underline');
+    };
+
+    const handleNewBtn=()=>{
+      content.innerHTML=''
+    }
+
+    const handleTxt=()=>{
+      const a= document.createElement('a')
+      const blob=new Blob([content.innerText])
+      const dataUrl=URL.createObjectURL(blob)
+      a.href=dataUrl
+      a.download='dcoument.txt'
+      a.click()
+    }
+
+    boldFunctionality.addEventListener('click', handleBoldClick);
+    italicsFunctionality.addEventListener('click', handleItalicClick);
+    underlineFunctionality.addEventListener('click', handleUnderlineClick);
+
+    newBtn.addEventListener('click',handleNewBtn)
+    txtBtn.addEventListener('click',handleTxt)
+
+    return () => {
+      boldFunctionality.removeEventListener('click', handleBoldClick);
+      italicsFunctionality.removeEventListener('click', handleItalicClick);
+      underlineFunctionality.removeEventListener('click', handleUnderlineClick);
+      newBtn.removeEventListener('click',handleNewBtn);
+      txtBtn.removeEventListener('click',handleTxt)
+    };
+  }, []);
 
 
     return(
         <div className={style.wrapper}>
-        <h3 className={style.nav}> <strong onClick={click}>B</strong>
-        <em>I</em>
-        <u>U</u>
-        <span>"</span>    
-        <span>H1</span>    
-        <span>H2</span>    
-        <span><FormatListBulletedIcon/></span>    
-        <span><FormatListNumberedIcon/></span>
-        <span>Normal</span>
-        <span><UnfoldMoreIcon/></span>
-        <span><ReorderIcon/></span>
-        <span><SegmentIcon/></span>
-         </h3>
+        <div className={style.nav}> 
+        <button id="boldButton">B</button>
+        <button id="italicsButton">I</button>
+        <button id="underlineButton">U</button>
+        <button>"</button>    
+        <button>H1</button>    
+        <button>H2</button>    
+        <button><FormatListBulletedIcon/></button>    
+        <button><FormatListNumberedIcon/></button>
+        <button>Normal</button>
+        <button><UnfoldMoreIcon/></button>
+        <button><ReorderIcon/></button>
+        <button><SegmentIcon/></button>
+        {/* <div className={style.IconsContainer}>
+          <FormatBoldIcon id="boldButton" />
+          <FormatItalicIcon id="italicButton" />
+          <FormatUnderlinedIcon id="underlineButton" />
+          <FormatListBulletedIcon />
+          <FormatListNumberedIcon />
+          <FormatQuoteIcon />
+          <CodeIcon />
+          <FormatColorFillIcon />
+          <FormatColorTextIcon />
+          <FormatIndentDecreaseIcon />
+          <FormatIndentIncreaseIcon />
+          <FormatLineSpacingIcon />
+          <FormatSizeIcon />
+          <ImageIcon />
+        </div> */}
+        {/* <div> */}
+        <button id="New">New</button>
+        {/* </div> */}
+                
 
-        <Input />
-        <input onChange={change}
-        />
+         </div>
+
+        <div id='content' className={style.input} contentEditable={true} spellCheck={false}></div>
         
+        <div className={style.download} id="txt">
+        <Fab id="txt" color="primary" aria-label="add">
+        <DownloadIcon />
+       </Fab>
+       </div>
         </div>
     )
 }
