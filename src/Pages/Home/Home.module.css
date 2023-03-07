@@ -9,6 +9,7 @@ body {
   align-items: center;
   flex-direction: column;
   width: 98.98vw;
+  background-color: lightgray;
 }
 
 .IconContainer {
@@ -281,5 +282,96 @@ body {
     font-size: 10px;
     width: 100vw;
   }
-  
+    
 }
+
+/* @media screen and (max-width:620px) {
+  .MainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 0rem;
+  }
+  .TextSheet{
+    width: 22rem;
+   }
+}
+
+@media screen and (max-width:550px) {
+  .TextSheet{
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width:520px) {
+  .TextSheet{
+    width: 19rem;
+  }
+}
+
+@media screen and (max-width:510px) {
+  .TextSheet{
+    width: 18.5rem;
+  }
+}
+
+@media screen and (max-width:500px) {
+  .TextSheet{
+    width: 17rem;
+  }
+}
+
+@media screen and (max-width:472px) {
+  .TextSheet{
+    width: 16rem;
+  }
+}
+
+@media screen and (max-width:463px) {
+  .TextSheet{
+    width: 15rem;
+  }
+}
+
+@media screen and (max-width:444px) {
+  .TextSheet{
+    width: 14rem;
+  }
+}
+
+@media screen and (max-width:425px) {
+  .TextSheet{
+    width: 13rem;
+  }
+}
+
+@media screen and (max-width:410px) {
+  .TextSheet{
+    width: 12.5rem;
+  }
+}
+@media screen and (max-width:400px) {
+  .TextSheet{
+    width: 10rem;
+  }
+}
+
+@media screen and (max-width:820px) {
+  .TextSheet{
+    width: 40rem;
+  }
+  .MainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+  }
+} */
+
+/* @media screen and (max-width:768px) {
+  .TextSheet{
+    width: 38rem;
+  }
+} */
